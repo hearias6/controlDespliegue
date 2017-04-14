@@ -1,0 +1,45 @@
+<section class="row">
+  <div class="col-md-12">
+
+    <h3 class="text-muted">
+      Usuarios.
+    </h3>
+
+    <!-- boton de nuevo usuario. -->
+    <button class='btn btn-success'> Nuevo Usuario. </button>
+
+    <!-- ver todos los usuarios. -->
+    <table class="table">
+      <thead>
+        <tr>
+          <th> Nombre Usuario</th>
+          <th> Contraseña </th>
+          <th> Rol </th>
+          <th> Opciones </th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let user of data">
+          <td>
+            {{user.name}}
+          </td>
+          <td>
+            {{user.pass}}
+          </td>
+          <td>
+            {{user.role_name}}
+          </td>
+          <td>
+            <button class="btn btn-primary">
+              Editar
+            </button>
+            <button class="btn btn-danger">
+              Eliminar
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>

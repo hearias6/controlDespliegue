@@ -1,0 +1,28 @@
+<section class="row">
+  <div class="col-md-12">
+    <h3 class="text-muted"> Personal </h3>
+
+    <button class="btn btn-success">Nuevo personal</button>
+
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Numero documento</th>
+          <th>Nombre Completo</th>
+          <th>Cargo</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let person of data">
+          <td>{{person.document}}</td>
+          <td>{{person.name}}</td>
+          <td>{{person.job}}</td>          
+          <td><button class="btn btn-primary">Detalles</button>
+          <button class="btn btn-danger">Eliminar</button></td>
+        </tr>
+      </tbody>
+    </table>
+
+  </div>
+</section>
