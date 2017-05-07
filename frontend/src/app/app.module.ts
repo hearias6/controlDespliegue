@@ -9,6 +9,7 @@ import { UserComponent } from './user/user.component';
 import { PersonComponent } from './person/person.component';
 import { DeployComponent } from './deploy/deploy.component';
 import { ClientComponent } from './client/client.component';
+import { AddUserComponent } from './add-user/add-user.component';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { ClientComponent } from './client/client.component';
     UserComponent,
     PersonComponent,
     DeployComponent,
-    ClientComponent
+    ClientComponent,
+    AddUserComponent
   ],
   imports: [
     BrowserModule,

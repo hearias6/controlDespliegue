@@ -1,5 +1,31 @@
 <section class="row">
   <div class="col-md-12">
     <h3 class="text-muted"> Despliegues </h3>
+    <button class="btn btn-success">Nuevo Despliegue</button>
+    <table class="table">
+      <thead>
+        <tr>
+          <th>Codigo</th>
+          <th>Fecha</th>
+          <th>Hora</th>
+          <th>Cliente</th>
+          <th>Usuario</th>
+          <th>Opciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let deploy of data">
+          <td>{{deploy.id_deploy}}</td>
+          <td>{{deploy.deploy_date}}</td>
+          <td>{{deploy.deploy_hour}}</td>
+          <td>{{deploy.fk_client}}</td>
+          <td>{{deploy.fk_person}}</td>
+          <td>
+            <button class="btn btn-primary">Editar</button>
+            <button class="btn btn-danger">Eliminar</button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>

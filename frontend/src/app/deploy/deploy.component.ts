@@ -13,8 +13,12 @@ export class DeployComponent implements OnInit {
   constructor(private http:Http) { }
 
   ngOnInit() {
+    this.getDeploys();
   }
 
-  
+  getDeploys(){
+    this.http.get('http://localhost/proyectos/ControlDespliege/backend/api/deploy/getDeploy.php')
+    .subscribe(res=>this.data = res.json());
+  }
 
 }
