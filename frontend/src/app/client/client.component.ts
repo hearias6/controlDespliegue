@@ -1,25 +1,26 @@
-import { Component, OnInit, Injectable } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
-import {Http, Response} from '@angular/http';
+import {clientService} from './client.service';
 
 @Component({
   selector: 'app-client',
   templateUrl: './client.component.html',
-  styleUrls: ['./client.component.css']
+  styleUrls: ['./client.component.css'],
+  providers:[clientService]
 })
 export class ClientComponent implements OnInit {
 
   private data;
 
-  constructor(private http:Http) { }
+  constructor(private clientService: clientService) { }
 
   ngOnInit() {
     this.getClients();
   }
 
   public getClients(){
-    this.http.get('http://localhost/proyectos/ControlDespliege/backend/api/client/getClient.php')
-        .subscribe(res=>this.data = res.json());
+    this.clientService.getClients()
+    .subscribe(result=>this.data=result);
   }
 
 }

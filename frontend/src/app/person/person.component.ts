@@ -1,14 +1,15 @@
-import { Component, OnInit, Injectable } from '@angular/core';
-import {Http, Response} from '@angular/http';
+import { Component, OnInit } from '@angular/core';
+import {personService} from './person.service';
 
 @Component({
   selector: 'app-person',
   templateUrl: './person.component.html',
-  styleUrls: ['./person.component.css']
+  styleUrls: ['./person.component.css'],
+  providers:[personService]
 })
 export class PersonComponent implements OnInit {
 
-  constructor(private http: Http) { }
+  constructor(private personService: personService) { }
 
   private data;
 
@@ -17,8 +18,8 @@ export class PersonComponent implements OnInit {
   }
 
   public getPersons(){
-    this.http.get('http://localhost/proyectos/ControlDespliege/backend/api/person/getPerson.php')
-        .subscribe(res=> this.data = res.json());
+    this.personService.getPersons()
+    .subscribe(res=>this.data=res);
   }
 
 }

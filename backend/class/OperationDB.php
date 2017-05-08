@@ -8,11 +8,7 @@ require_once 'ConectionDB.php';
 class OperationDB extends ConectionDB
 {
 
-  /**
-   * devuelve un arreglo de una consulta.
-   * @param type var Description
-   * @return return type
-   */
+
   public function rows($sql)
   {
     try {
@@ -24,6 +20,29 @@ class OperationDB extends ConectionDB
     }catch (PDOException $e) {
         $e->getMessage();
     }
+  }
+
+  public function insert($sql)
+  {
+    try {
+      $resultado = false;
+      $query = $this->conn->prepare($sql);
+      $row = $query->execute();
+
+      if ($row>0) {
+        $resultado = true;
+        echo 'ok registro, '.$resultado;
+      }else{
+        $resultado = false;
+        echo 'error registro, '.$resultado;
+      }
+
+      return $resultado;
+
+    } catch (PDOException $e) {
+      echo $e->getMessage();
+    }
+
   }
 
 }
